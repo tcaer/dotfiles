@@ -1,17 +1,17 @@
 -- Editor settings
 vim.wo.number = true
-vim.wrap = false
+vim.opt.wrap = false
 
 -- Syntax settings
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
-vim.o.smartindent = true
-vim.o.updatetime = 50
-vim.o.colorcolumn = "80"
-vim.o.signcolumn = "no"
+vim.opt.smartindent = true
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = "no"
 
 -- Packages
 vim.cmd [[packadd packer.nvim]]
