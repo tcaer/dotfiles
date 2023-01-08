@@ -20,6 +20,7 @@ require('packer').startup(function(use)
   use 'morhetz/gruvbox'
   use 'nvim-treesitter/nvim-treesitter'
   use 'rust-lang/rust.vim'
+  use 'DingDean/wgsl.vim'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use {
