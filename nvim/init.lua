@@ -45,7 +45,6 @@ require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
-  use 'tmsvg/pear-tree'
 end)
 
 -- Theme settings
