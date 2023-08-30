@@ -50,7 +50,6 @@ require('gruvbox').setup({
 		operators = false,
 		folds = false,
 	},
-	contrast = 'soft',
 })
 vim.cmd('colorscheme gruvbox')
 
