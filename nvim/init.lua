@@ -7,6 +7,7 @@ vim.opt.smartcase = true
 vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.wrap = false
 
 -- Lazy initialization
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
