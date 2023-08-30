@@ -31,13 +31,18 @@ require("lazy").setup({
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/vim-vsnip',
+	
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
+	
 	'lewis6991/gitsigns.nvim',
 	'tpope/vim-fugitive',
+	
 	{ 'ellisonleao/gruvbox.nvim', priority = 1000 },
+
+	'romainl/vim-cool',
 })
 
 -- Gitsigns config
