@@ -127,7 +127,6 @@ require('mason').setup()
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
 	handlers = {
 		['textDocument/publishDiagnostics'] = vim.lsp.with(
 			vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -135,6 +134,13 @@ nvim_lsp.tsserver.setup {
 			}
 		),
 	},
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+}
+nvim_lsp.rust_analyzer.setup{
+	handlers = {
+		['textDocument/publishDiagnostics'] = vim.lsp.with(
+			vim.lsp.diagnostic.on_publish_diagnostics, {
+				update_in_insert = true,
+			}
+		),
+	},
 }
