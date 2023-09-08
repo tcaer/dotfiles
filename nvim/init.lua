@@ -7,6 +7,9 @@ vim.opt.smartcase = true
 vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
 vim.opt.wrap = false
 
 -- Lazy initialization
@@ -32,6 +35,7 @@ require("lazy").setup({
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/vim-vsnip',
+  'williamboman/mason.nvim',
 	
 	{
 		'nvim-telescope/telescope.nvim',
@@ -118,7 +122,9 @@ cmp.setup.cmdline(':', {
   }),
 })
 
-local status, nvim_lsp = pcall(require, "lspconfig")
+require('mason').setup()
+
+local nvim_lsp = require('lspconfig')
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
