@@ -134,6 +134,7 @@ nvim_lsp.tsserver.setup {
 			}
 		),
 	},
+  root_dir = nvim_lsp.util.root_pattern('package.json')
 }
 nvim_lsp.rust_analyzer.setup{
 	handlers = {
@@ -152,4 +153,14 @@ nvim_lsp.gopls.setup{
       }
     ),
   },
+}
+nvim_lsp.denols.setup{
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
+  root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
 }
