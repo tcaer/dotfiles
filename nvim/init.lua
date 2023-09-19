@@ -134,7 +134,8 @@ nvim_lsp.tsserver.setup {
 			}
 		),
 	},
-  root_dir = nvim_lsp.util.root_pattern('package.json')
+  root_dir = nvim_lsp.util.root_pattern('package.json'),
+  single_file_support = false,
 }
 nvim_lsp.rust_analyzer.setup{
 	handlers = {
