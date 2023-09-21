@@ -165,3 +165,12 @@ nvim_lsp.denols.setup{
   },
   root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
 }
+nvim_lsp.zls.setup{
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
+}
