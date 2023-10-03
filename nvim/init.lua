@@ -81,6 +81,9 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 
+vim.keymap.set('n', 'vs', vim.lsp.buf.signature_help)
+vim.keymap.set('n', 'vt', vim.lsp.buf.hover)
+
 local cmp = require('cmp')
 
 cmp.setup({
