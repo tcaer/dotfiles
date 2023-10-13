@@ -1,5 +1,6 @@
 -- Basic vim stuff
 vim.g.mapleader = " "
+vim.opt.colorcolumn = '100'
 vim.opt.number = true
 vim.opt.mouse = 'a'
 vim.opt.ignorecase = true
