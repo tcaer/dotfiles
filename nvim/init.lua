@@ -37,6 +37,11 @@ require("lazy").setup({
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/vim-vsnip',
   'williamboman/mason.nvim',
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
 	
 	{
 		'nvim-telescope/telescope.nvim',
@@ -50,6 +55,9 @@ require("lazy").setup({
 
 	'romainl/vim-cool',
 })
+
+-- Ibl
+require('ibl').setup()
 
 -- Gitsigns config
 require('gitsigns').setup()
@@ -170,6 +178,15 @@ nvim_lsp.denols.setup{
   root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
 }
 nvim_lsp.zls.setup{
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
+}
+nvim_lsp.graphql.setup {
   handlers = {
     ['textDocument/publishDiagnostics'] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
