@@ -73,6 +73,9 @@ require('gruvbox').setup({
 		operators = false,
 		folds = false,
 	},
+  palette_overrides = {
+    light0 = '#f9f5d7'
+  },
 })
 vim.cmd([[colorscheme gruvbox]])
 
