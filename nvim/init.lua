@@ -64,8 +64,6 @@ require('ibl').setup()
 require('gitsigns').setup()
 
 -- Gruvbox config
-vim.o.background = 'dark'
-
 require('gruvbox').setup({
   italic = {
     strings = false,
@@ -77,7 +75,6 @@ require('gruvbox').setup({
     light0 = '#f9f5d7'
   },
 })
-vim.cmd([[colorscheme gruvbox]])
 
 local auto_dark_mode = require('auto-dark-mode')
 
