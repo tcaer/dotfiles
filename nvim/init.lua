@@ -29,13 +29,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Lazy plugins
 require("lazy").setup({
-	'neovim/nvim-lspconfig',
-	'hrsh7th/cmp-nvim-lsp',
-	'hrsh7th/cmp-buffer',
-	'hrsh7th/cmp-path',
-	'hrsh7th/cmp-cmdline',
-	'hrsh7th/nvim-cmp',
-	'hrsh7th/vim-vsnip',
+  'neovim/nvim-lspconfig',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/vim-vsnip',
   'williamboman/mason.nvim',
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -43,18 +43,18 @@ require("lazy").setup({
     opts = {},
   },
   'f-person/auto-dark-mode.nvim',
-	
-	{
-		'nvim-telescope/telescope.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-	
-	'lewis6991/gitsigns.nvim',
-	'tpope/vim-fugitive',
-	
-	{ 'ellisonleao/gruvbox.nvim', priority = 1000 },
+  
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  
+  'lewis6991/gitsigns.nvim',
+  'tpope/vim-fugitive',
+  
+  { 'ellisonleao/gruvbox.nvim', priority = 1000 },
 
-	'romainl/vim-cool',
+  'romainl/vim-cool',
 })
 
 -- Ibl
@@ -67,12 +67,12 @@ require('gitsigns').setup()
 vim.o.background = 'dark'
 
 require('gruvbox').setup({
-	italic = {
-		strings = false,
-		comments = false,
-		operators = false,
-		folds = false,
-	},
+  italic = {
+    strings = false,
+    comments = false,
+    operators = false,
+    folds = false,
+  },
   palette_overrides = {
     light0 = '#f9f5d7'
   },
@@ -82,15 +82,15 @@ vim.cmd([[colorscheme gruvbox]])
 local auto_dark_mode = require('auto-dark-mode')
 
 auto_dark_mode.setup({
-	update_interval = 1000,
-	set_dark_mode = function()
-		vim.api.nvim_set_option('background', 'dark')
-		vim.cmd([[colorscheme gruvbox]])
-	end,
-	set_light_mode = function()
-		vim.api.nvim_set_option('background', 'light')
-		vim.cmd([[colorscheme gruvbox]])
-	end,
+  update_interval = 1000,
+  set_dark_mode = function()
+    vim.api.nvim_set_option('background', 'dark')
+    vim.cmd([[colorscheme gruvbox]])
+  end,
+  set_light_mode = function()
+    vim.api.nvim_set_option('background', 'light')
+    vim.cmd([[colorscheme gruvbox]])
+  end,
 })
 
 -- Telescope config
@@ -114,31 +114,31 @@ vim.keymap.set('n', 'vt', vim.lsp.buf.hover)
 local cmp = require('cmp')
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn['vsnip#anonymous'](args.body)
-		end,
-	},
-	mapping = cmp.mapping.preset.insert({
-		['<Tab>'] = cmp.mapping.confirm({ select = true }),
-		['<C-e>'] = cmp.mapping.abort(),
-	}),
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' },
-	}, {
-		{ name = 'buffer' }
-	}),
+  snippet = {
+    expand = function(args)
+      vim.fn['vsnip#anonymous'](args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-e>'] = cmp.mapping.abort(),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }, {
+    { name = 'buffer' }
+  }),
 })
 cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources({
-		{ name = 'git' },
-	}, {
-		{ name = 'buffer' },
-	}),
+  sources = cmp.config.sources({
+    { name = 'git' },
+  }, {
+    { name = 'buffer' },
+  }),
 })
 cmp.setup.cmdline({ '/', '?' }, {
-	mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' },
   },
@@ -157,24 +157,24 @@ require('mason').setup()
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.tsserver.setup {
-	handlers = {
-		['textDocument/publishDiagnostics'] = vim.lsp.with(
-			vim.lsp.diagnostic.on_publish_diagnostics, {
-				update_in_insert = true,
-			}
-		),
-	},
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
   root_dir = nvim_lsp.util.root_pattern('package.json'),
   single_file_support = false,
 }
 nvim_lsp.rust_analyzer.setup{
-	handlers = {
-		['textDocument/publishDiagnostics'] = vim.lsp.with(
-			vim.lsp.diagnostic.on_publish_diagnostics, {
-				update_in_insert = true,
-			}
-		),
-	},
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
 }
 nvim_lsp.gopls.setup{
   handlers = {

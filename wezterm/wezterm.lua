@@ -36,18 +36,18 @@ wezterm.on('update-right-status', function(window, pane)
 end)
 
 config.keys = {
-	{
-		key = '-',
-		mods = 'CTRL|ALT',
-		action = wezterm.action.SplitPane {
-			direction = 'Down',
-		},
-	},
-	{
-		key = '\\',
-		mods = 'CTRL|ALT',
-		action = wezterm.action.SplitHorizontal
-	},
+  {
+    key = '-',
+    mods = 'CTRL|ALT',
+    action = wezterm.action.SplitPane {
+      direction = 'Down',
+    },
+  },
+  {
+    key = '\\',
+    mods = 'CTRL|ALT',
+    action = wezterm.action.SplitHorizontal
+  },
 }
 
 return config
