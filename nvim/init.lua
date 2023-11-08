@@ -37,6 +37,7 @@ require("lazy").setup({
   'hrsh7th/nvim-cmp',
   'hrsh7th/vim-vsnip',
   'williamboman/mason.nvim',
+  'folke/twilight.nvim',
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
@@ -90,12 +91,18 @@ auto_dark_mode.setup({
   end,
 })
 
+-- Twilight config
+local twilight = require('twilight')
+
+vim.keymap.set('n', '<leader>vt', twilight.toggle)
+
 -- Telescope config
 local telescope = require('telescope.builtin')
+
 vim.keymap.set('n', '<C-p>', telescope.find_files)
 vim.keymap.set('n', '<C-l><C-p>', telescope.live_grep)
 vim.keymap.set('n', '<C-l>p', telescope.live_grep)
---
+
 -- LSP config
 vim.keymap.set('n', 'do', vim.diagnostic.open_float)
 vim.keymap.set('n', 'd]', vim.diagnostic.goto_next)
