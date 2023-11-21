@@ -21,7 +21,7 @@ function get_appearance(appearance)
   end
 end
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 config.color_scheme = get_appearance(wezterm.gui.get_appearance())
 config.font_size = 13.0
 
