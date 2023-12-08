@@ -56,6 +56,8 @@ require("lazy").setup({
   { 'ellisonleao/gruvbox.nvim', priority = 1000 },
 
   'romainl/vim-cool',
+
+  'github/copilot'
 })
 
 -- Ibl
