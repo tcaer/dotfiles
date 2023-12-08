@@ -57,7 +57,7 @@ require("lazy").setup({
 
   'romainl/vim-cool',
 
-  'github/copilot'
+  'github/copilot.vim'
 })
 
 -- Ibl
