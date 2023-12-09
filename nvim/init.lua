@@ -170,6 +170,16 @@ nvim_lsp.tsserver.setup {
       }
     ),
   },
+  filetypes = { 'c', 'm', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+}
+nvim_lsp.tsserver.setup {
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
   root_dir = nvim_lsp.util.root_pattern('package.json'),
   single_file_support = false,
 }
