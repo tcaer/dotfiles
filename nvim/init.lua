@@ -44,22 +44,17 @@ require("lazy").setup({
     opts = {},
   },
   'f-person/auto-dark-mode.nvim',
-  
   {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  
   'lewis6991/gitsigns.nvim',
   'tpope/vim-fugitive',
-  
   { 'ellisonleao/gruvbox.nvim', priority = 1000 },
-
   'romainl/vim-cool',
-
   'github/copilot.vim',
-
   'joerdav/templ.vim',
+  'nvim-treesitter/nvim-treesitter'
 })
 
 -- Copilot
@@ -251,5 +246,14 @@ nvim_lsp.svelte.setup {
         update_in_insert = true,
       }
     ),
+  },
+}
+
+-- Treesitter
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { 'svelte', 'typescript', 'rust', 'go' },
+  auto_install = true,
+  highlight = {
+    enable = true,
   },
 }
