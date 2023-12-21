@@ -57,7 +57,9 @@ require("lazy").setup({
 
   'romainl/vim-cool',
 
-  'github/copilot.vim'
+  'github/copilot.vim',
+
+  'joerdav/templ.vim',
 })
 
 -- Copilot
@@ -225,6 +227,24 @@ nvim_lsp.zls.setup{
   },
 }
 nvim_lsp.graphql.setup {
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
+}
+nvim_lsp.templ.setup {
+  handlers = {
+    ['textDocument/publishDiagnostics'] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = true,
+      }
+    ),
+  },
+}
+nvim_lsp.svelte.setup {
   handlers = {
     ['textDocument/publishDiagnostics'] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
