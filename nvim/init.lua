@@ -54,7 +54,6 @@ require("lazy").setup({
   'romainl/vim-cool',
   'github/copilot.vim',
   'joerdav/templ.vim',
-  'nvim-treesitter/nvim-treesitter'
 })
 
 -- Copilot
@@ -163,7 +162,7 @@ require('mason').setup()
 
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.tsserver.setup {
+nvim_lsp.clangd.setup {
   handlers = {
     ['textDocument/publishDiagnostics'] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -171,7 +170,7 @@ nvim_lsp.tsserver.setup {
       }
     ),
   },
-  filetypes = { 'c', 'm', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+  filetypes = { 'c', 'm', 'mm', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
 }
 nvim_lsp.tsserver.setup {
   handlers = {
@@ -246,14 +245,5 @@ nvim_lsp.svelte.setup {
         update_in_insert = true,
       }
     ),
-  },
-}
-
--- Treesitter
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'svelte', 'typescript', 'rust', 'go' },
-  auto_install = true,
-  highlight = {
-    enable = true,
   },
 }
