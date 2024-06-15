@@ -52,13 +52,23 @@ require("lazy").setup({
   'tpope/vim-fugitive',
   { 'ellisonleao/gruvbox.nvim', priority = 1000 },
   'romainl/vim-cool',
-  'github/copilot.vim',
+  {
+    'supermaven-inc/supermaven-nvim',
+    config = function()
+      require('supermaven-nvim').setup({
+        keymaps = {
+          accept_suggestion = '<C-A>',
+        },
+      })
+    end,
+  },
+  -- 'github/copilot.vim',
   'joerdav/templ.vim',
 })
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap('i', '<C-A>', 'copilot#Accept("CR")', { silent = true, expr = true })
+-- vim.api.nvim_set_keymap('i', '<C-A>', 'copilot#Accept("CR")', { silent = true, expr = true })
 
 -- Ibl
 require('ibl').setup()
@@ -169,7 +179,7 @@ nvim_lsp.clangd.setup {
   },
   filetypes = { 'c', 'm', 'mm', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
 }
-nvim_lsp.tsserver.setup {
+nvim_lsp.vtsls.setup({
   handlers = {
     ['textDocument/publishDiagnostics'] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -177,9 +187,7 @@ nvim_lsp.tsserver.setup {
       }
     ),
   },
-  root_dir = nvim_lsp.util.root_pattern('package.json'),
-  single_file_support = false,
-}
+})
 nvim_lsp.rust_analyzer.setup{
   handlers = {
     ['textDocument/publishDiagnostics'] = vim.lsp.with(
