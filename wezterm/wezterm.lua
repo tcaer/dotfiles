@@ -14,7 +14,8 @@ end)
 
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 config.color_scheme = "Gruvbox light, medium (base16)"
-config.font_size = 13.0
+config.font_size = 11.5
+config.font = wezterm.font("Zed Mono Extended")
 
 config.keys = {
   {
