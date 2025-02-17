@@ -1,6 +1,7 @@
 -- Basic vim stuff
 vim.g.mapleader = ' '
 vim.g.colorcolumn = 100
+vim.g.augment_disable_tab_mapping = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
@@ -88,8 +89,6 @@ cmp.setup({
     ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
         else
           fallback()
         end
@@ -155,7 +154,6 @@ vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
 vim.keymap.set('i', '<C-a>', function()
     vim.fn.call('augment#Accept', {})
 end, { noremap = true, silent = true })
-
 vim.g.augment_workspace_folders = {'/Users/tino/Workspace/tcorp'}
 
 require('nvim-treesitter.configs').setup({
