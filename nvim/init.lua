@@ -8,10 +8,10 @@ vim.opt.mouse = 'a'
 vim.opt.expandtab = true
 vim.opt.wrap = false
 vim.opt.signcolumn = 'yes'
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 -- Lazy initialization
@@ -59,6 +59,8 @@ require("lazy").setup({
   'augmentcode/augment.vim',
   'nvim-treesitter/nvim-treesitter'
 })
+
+require('gitsigns').setup()
 
 require('gruvbox').setup({
   italic = {
@@ -148,13 +150,16 @@ vim.api.nvim_create_autocmd({"TextChanged", "TextChangedI"}, {
 })
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
 
 vim.keymap.set('i', '<C-a>', function()
     vim.fn.call('augment#Accept', {})
 end, { noremap = true, silent = true })
-vim.g.augment_workspace_folders = {'/Users/tino/Workspace/tcorp'}
+vim.g.augment_workspace_folders = {'/Users/tino/sigma/slate', '/Users/tino/sigma/mono-node', '/Users/tino/sigma/mono-go'}
 
 require('nvim-treesitter.configs').setup({
     highlight = {
